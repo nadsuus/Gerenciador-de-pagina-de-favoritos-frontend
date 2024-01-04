@@ -5,7 +5,7 @@ import axios from "axios";
 const Conteudo = () => {
   let [nome, setNome] = useState("");
   let [url, setUrl] = useState("");
-  let [importante, setImportante] = useState(false); 
+  let [importante, setImportante] = useState(false);
   const [favoritos, setFavoritos] = useState([]);
 
   useEffect(() => {
@@ -25,32 +25,32 @@ const Conteudo = () => {
 
     const newFavorito = { nome, url, importante };
     axios.post('http://127.0.0.1:3030/favoritao', newFavorito)
-        .then(response => {
-            alert(`Novo favorito criado`);
-            setNome('')
-        })
-        .catch(error => {
-            window.alert("Digite o nome e a url")
-        });
-};
-
-//Deletar favorito 
-const handleDelete = (favoritoId) => {
-  axios.delete(`http://127.0.0.1:3030/favoritao/${favoritoId}`)
-      .then(() => {
-          setFavoritos(favoritos.filter(favorito => favorito.id !== favoritoId));
-          alert(`O favorito foi deletado com sucesso`);
+      .then(response => {
+        alert(`Novo favorito criado`);
+        setNome('')
       })
       .catch(error => {
-          console.error('Error deleting the post:', error);
+        window.alert("Digite o nome e a url")
       });
-};
+  };
+
+  //Deletar favorito 
+  const handleDelete = (favoritoId) => {
+    axios.delete(`http://127.0.0.1:3030/favoritao/${favoritoId}`)
+      .then(() => {
+        setFavoritos(favoritos.filter(favorito => favorito.id !== favoritoId));
+        alert(`O favorito foi deletado com sucesso`);
+      })
+      .catch(error => {
+        console.error('Error deleting the post:', error);
+      });
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.criarFav}>
         <h1>Crie Um Novo Favorito</h1>
-        
+
         <form className={styles.formulario}>
           <label>Nome do Site</label>
           <br />
@@ -92,18 +92,18 @@ const handleDelete = (favoritoId) => {
           {favoritos[0] !== undefined &&
             favoritos.map((favorito) => (
               <div key={favorito.id}>
-              <li className={styles.listaFavoritos} style={favorito.importante ? { color: "red" } : {}}>
-                {" "}
-                <a href = {favorito.url} target="_blank" rel="noreferrer" style={favorito.importante ? { color: "red" } : {}} >{favorito.nome} </a>
-                {favorito.importante ? " importante" : ""}{" "}
+                <li className={styles.listaFavoritos} style={favorito.importante ? { color: "red" } : {}}>
+                  {" "}
+                  <a href={favorito.url} target="_blank" rel="noreferrer" style={favorito.importante ? { color: "red" } : {}} >{favorito.nome} </a>
+                  {favorito.importante ? " importante" : ""}{" "}
 
-                <input
-            className={styles.botaoApagar}
-            type="button"
-            value="Deletar"
-            onClick={() => handleDelete(favorito.id)}
-          />
-              </li>
+                  <input
+                    className={styles.botaoApagar}
+                    type="button"
+                    value="Deletar"
+                    onClick={() => handleDelete(favorito.id)}
+                  />
+                </li>
               </div>
             ))}
         </ul>
