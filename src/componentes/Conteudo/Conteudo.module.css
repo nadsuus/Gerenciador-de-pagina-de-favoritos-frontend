@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formulario {
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 30px;
+    
+}
+
+.listaFavoritos {
+    list-style-type: none;
+    border-radius: 4px;
+    border: 1px solid black;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+}
+
+.lista {
+    padding-left: 0px;
+}
+
+.botaoApagar {
+    padding: 0px;
+    margin: 5px;
+}

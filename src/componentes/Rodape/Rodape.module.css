@@ -1,0 +1,41 @@
+.footer {
+    background-color: #18002b;
+    display: absolute;
+    bottom: 0px;
+    color:black;
+    width: 100%;
+    position: fixed;
+    padding-top: 10px;
+}
+
+.img {
+    width: 50px;
+    height: 50px;
+}
+
+.imgIcon {
+    width: 50px;
+    height: 50px;
+}
+
+.footerIcon {
+    display: flex;
+    justify-content:space-around ;
+    align-items: center;
+}
+
+.navFooter {
+    display: flex;
+}
+.navFooter p {
+    padding-left: 40px;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+.navIcon img {
+   padding-left: 50px;
+}   
+
+footer {
+    color: white;
+}
